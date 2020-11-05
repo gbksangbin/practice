@@ -5,24 +5,27 @@
 <title>ChangeColor</title>
 </head>
 <body>
-
-    <p>스크립트 전</p>
-
     <script>
     let color = ['red', 'orange', 'pink', 'yellow', 'blue', 'green'];
     let i=0;
-    ChangeColor();    
+    /*ChangeColor();    
     
     function ChangeColor() {
       setTimeout(()=> {
         if(i===color.length) i=0;
         document.body.style.background = color[i++];
         ChangeColor();
-    },100);
+        },100);
     }
+    */
+    function ChangeColor() {
+        if(i===color.length) i=0;
+        document.body.style.background = color[i++];
+    }
+    setInterval(ChangeColor,500);
+    
+    alert(`${navigator.userAgent}, ${navigator.platform}`)
+    
     </script>
-    
-    
-    <p>스크립트 후</p>
 </body>
 </html>
