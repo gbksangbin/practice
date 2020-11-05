@@ -4,13 +4,23 @@
   <title>사슴에 관하여</title>
 </head>
 <body>
-    <input type="text" id="color">
-    <input type="button" value = "change"onclick="ChangeColor()">
+    <input type="text" id="FirstColor">
+    <input type="text" id="SecondColor">
+    <input type="text" id="ThirdColor">
+    <input type="button" value = "change"onclick="setColor()">
   <script>
-      function ChangeColor() {
-        let typedColor = document.getElementById("color");
-        document.body.style.background=typedColor.value
-      }
+    function setColor() {
+        let typedColor = [
+            document.getElementById("FirstColor").value, 
+            document.getElementById("SecondColor").value, 
+            document.getElementById("ThirdColor").value];
+        let i=0;
+        setInterval(()=> {
+        if(i===typedColor.length) i=0;
+        document.body.style.background = typedColor[i++];
+        },300);
+    }
+    
   </script>
   <a>
       사습은 아름다운 동물입니다.
