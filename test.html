@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ChangeColor</title>
+</head>
+<body>
+
+    <p>스크립트 전</p>
+
+    <script>
+    let color = ['red', 'orange', 'pink', 'yellow', 'blue', 'green'];
+    let i=0;
+    ChangeColor();    
+    
+    function ChangeColor() {
+      setTimeout(()=> {
+        if(i===color.length) i=0;
+        document.body.style.background = color[i++];
+        ChangeColor();
+    },100);
+    }
+    </script>
+    
+    
+    <p>스크립트 후</p>
+</body>
+</html>

@@ -1,7 +1,6 @@
 //블랙잭 게입 
 "use strict";
 const TARGET_NUMBER=21;
- 
 let total_number=0;
  for(;;){
     let my_card= prompt("자신의 카드 값을 입력 하시오.");
