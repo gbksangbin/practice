@@ -1,0 +1,24 @@
+<body>
+	<input type="text" name="text" id="textbox1" value="1">
+	<input type="text" name="text" id="textbox2" value="2">
+	<input type="text" name="text" id="textbox3" value="3">
+	<input type="button" name="confirm" onclick="alert_button()" value="Press Button!">
+	
+	<input type="text" name="search" id="search1" placeholder="Type here to search ID">
+	<input type="button" name="confirm" onclick="search_button()" value="Press Button!">
+	<script>
+		function alert_button() {  // name 이 text 되어 있는 input 박스를 모두 초기화함
+			for (const element of document.getElementsByName("text")) {
+				alert(element.value);
+				element.value = "";
+			}
+		}
+		
+		function search_button() {  // search1 id 를 가진 input 의 값을 가져와 쿼리 셀렉터로 찾아옴 
+			let search_condition = document.getElementById("search1").value;
+			for (const element of document.querySelectorAll(`input[name*=${search_condition}]`)) {
+				alert(element.value);
+			}
+		}
+	</script>
+</body>

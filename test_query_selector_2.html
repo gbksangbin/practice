@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>SMC School</title>
+    </head>
+    <body>
+        <div>
+            <a>you can do it!</a>
+            <p>Input The TextBox</p>
+            <input type="text" id="A"/>
+            <input type="text" id="B"/>
+            <input type="text" id="C"/>
+            <input type="button" value="submit!" onclick="clearInput()"/>
+        </div>
+        <br>
+        <div>
+            <a target="_blank">http://smc.sen.hs.kr/index.do<a>
+        </div>
+        <script>
+            // 1. SMC School 이라고 되어 있는 타이틀을 SMC 로 변경한다
+            // 2. submit! 이라고 되어 있는 버튼을 누르면 모든 <input type="text"> 인 elements 에 value 를 "" 로 변경한다
+            // 3. target 속성이 있는 <a> 태그의 backgroundColor 를 red 로 변경한다
+            document.querySelector("title").innerHTML = "SMC";
+            document.querySelector("a[target]").style.background = "red";
+
+            function clearInput() {
+                const inputText = document.querySelectorAll("input[type='text']");
+                for(const text of inputText){
+                    text.value="";
+                }
+            }
+
+
+        </script>
+    </body>
+</html>

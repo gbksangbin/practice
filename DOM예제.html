@@ -7,10 +7,12 @@
     <input type="text" id="FirstColor">
     <input type="text" id="SecondColor">
     <input type="text" id="ThirdColor">
-    <input type="button" value = "change"onclick="setColor()">
+    <input type="button"  onclick =setColor()>
+    <input type="button"  onclick =resetColor()>
   <script>
     function setColor() {
-        let typedColor = [
+        /*let typedColor = [3];
+        typedColor=[
             document.getElementById("FirstColor").value, 
             document.getElementById("SecondColor").value, 
             document.getElementById("ThirdColor").value];
@@ -18,8 +20,28 @@
         setInterval(()=> {
         if(i===typedColor.length) i=0;
         document.body.style.background = typedColor[i++];
-        },300);
+        },700);*/
+        const firstCol =  document.getElementById("FirstColor");
+        const secondcol = document.getElementById("SecondColor");
+        const thirdcol = document.getElementById("ThirdColor");
+
+        setTimeout(()=>{document.body.style.background = firstCol.value}, 500); 
+        setTimeout(()=>{document.body.style.background = secondcol.value}, 1000);
+        setTimeout(()=>{document.body.style.background = thirdcol.value}, 1500);
+       
     }
+    setInterval(setColor,2000);
+
+    function resetColor() {
+    let firstcolor = document.getElementById("FirstColor");
+    let secondcolor = document.getElementById("SecondColor");
+    let thirdcolor = document.getElementById("ThirdColor");
+
+    firstcolor.value = "";
+    secondcolor.value = "";
+    thirdcolor.value = "";
+    }
+    
     
   </script>
   <a>
