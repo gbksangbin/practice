@@ -1,0 +1,7 @@
+body{
+    margin: 100px auto;
+    width: 600px;
+}
+.name,.id,.password,.RRN {
+    text-align: right;
+}
