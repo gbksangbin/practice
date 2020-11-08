@@ -1,7 +1,12 @@
 body{
     margin: 100px auto;
-    width: 600px;
+    width: 470px;
 }
 .name,.id,.password,.RRN {
     text-align: right;
 }
+div > p{
+    display: inline-block;
+    text-align: left;
+}
+
