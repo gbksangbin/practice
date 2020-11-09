@@ -1,0 +1,71 @@
+<head>
+    <title>화원가입</title>
+    <link rel="stylesheet" href="registar.css">
+</head>
+<body>
+    <div class = "wrap">
+        <h1 class = "title">회원가입</h1>
+        <div class = "name">
+            <p>이름:</p>
+            <input id = "inputName" class = "inputName" type = "text">
+        </div>
+        <div class="id">
+            <p>아이디:</p>
+            <input id = "inputId" class = "inputId" type = "text">
+        </div>
+        <div class = "password">
+            <p>비밀번호:</p>
+            <input id = "inputPassword" class = "inputPassword" type = "text">
+        </div>
+        <div classs="RRN">
+            <p>주민등록번호</p>
+            <input id = "RRN1" class = "RRN1" type = "text">
+            <input id = "RRN2" class = "RRN2" type = "text">
+        </div>
+    
+        <div class = "buttons">
+        <input class="button1"type="button" value="작성완료" onclick="submit()">
+        <input class="button2" type="button" value="다시쓰기" onclick="reset()">
+        </div>
+    </div>
+    <script>
+        "use strict";
+        function reset() { 
+                for(const text of document.querySelectorAll("input[type='text']")){
+                    text.value="";
+                }
+        }
+        function submit() {
+            const name = document.getElementById("inputName").value;
+            if(2 > name.length || name.length > 10) {
+                alert("이름은 2~10 글자 사이어야만합니다.")
+                return false;
+            }
+
+            const password = document.getElementById("inputPassword").value;
+            if(!isIncludeSpecialChar(password,["@","!","?","_"]) || password.length <8){
+                alert("비밀번호는 특수문자(?!@_) 중 하나를 포함하여야 하고, 8글자 이상이어야한다.");
+                return false;
+            }
+
+            const RRN1 = document.getElementById("RRN1").value;
+            const RRN2 = document.getElementById("RRN2").value;
+
+            if(RRN1.length !== 6 ||RRN2.length !== 1 || isNaN(RRN1) || isNaN(RRN2)) {
+                alert("주민등록 번호의 첫번째 박스는 6글자여야 하고, 두번째 박스는 1글자여야 한다.")
+                return false;
+            }
+            
+            alert("회원가입에 성공하였습니다!");
+             return true;
+        }
+        function isIncludeSpecialChar(password,special_char) {
+           for( const text of special_char){
+               if(password.includes(text)){
+                   return true;
+               }
+           }
+           return false;
+        }
+    </script>
+</body>
