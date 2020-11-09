@@ -1,0 +1,73 @@
+<head>
+    <title>AS 신청서</title>
+    <link rel="stylesheet" href="AS.css">
+</head>
+<body>
+    <div class = "wrap">
+        <h1 class = "title">AS 신청서</h1>
+        <div class="inputWrap">   
+            <div class = "Name">
+                <p>이름</p>
+                <input id="inputName" type = "text">
+            </div>
+            <div class = "email">
+                <p>이메일</p>
+                <input id="inputEmail" type = "text">
+            </div>
+            <div class = "AStitle">
+                <p>제목</p>
+                <input id="inputTitle" type = "text" placeholder="[분류]제목">
+            </div>
+            <div class = "Explanation">
+                <p>설명</p>
+                <textarea id = "inputExplan" rows="4" cols="34"></textarea>
+            </div>
+        </div>
+        <div class = "buttons">
+            <input type = "button" value = "submit" onclick="submint()">
+            <input type = "button" value = "reset" onclick="reset()">
+        </div>
+    </div>
+    <script>
+        function submint() {
+            const name = document.getElementById("inputName").value;
+                if(2 > name.length || name.length > 10) {
+                    alert("이름은 2~10 글자 사이어야만합니다.")
+                    return false;
+                }
+
+            const email = document.getElementById("inputEmail").value;
+                if(!email.includes("@")||email.indexOf("@") !== email.lastIndexOf("@")){
+                    alert("이메일이 아닙니다.");
+                    return false;
+                }
+            const title = document.getElementById("inputTitle").value;
+                if (!isIncludeSpecialChar(title,["["&& "]"])) {
+                    alert("[분류] 제목명과 같은 포멧으로 작성해야 합니다.");
+                    return false;
+                }
+            const Explanation = document.getElementById("inputExplan").value;
+            if( Explanation.length > 100){
+                alert("설명은 100글자까지 입니다.");
+                return false;
+            }
+
+            const Classification =title.split("[")[1].split("]")[0];
+            alert(Classification);
+
+            alert("AS 신청 완료");
+            return true;
+        }
+        function reset() {
+
+        }
+        function isIncludeSpecialChar(password,special_char) {
+                    for(const text of special_char){
+                        if(password.includes(text)){
+                            return true;
+               } 
+           }
+           return false;
+        }
+    </script>
+</body>
