@@ -28,46 +28,5 @@
             <input type = "button" value = "reset" onclick="reset()">
         </div>
     </div>
-    <script>
-        function submint() {
-            const name = document.getElementById("inputName").value;
-                if(2 > name.length || name.length > 10) {
-                    alert("이름은 2~10 글자 사이어야만합니다.")
-                    return false;
-                }
-
-            const email = document.getElementById("inputEmail").value;
-                if(!email.includes("@")||email.indexOf("@") !== email.lastIndexOf("@")){
-                    alert("이메일이 아닙니다.");
-                    return false;
-                }
-            const title = document.getElementById("inputTitle").value;
-                if (!isIncludeSpecialChar(title,["["&& "]"])) {
-                    alert("[분류] 제목명과 같은 포멧으로 작성해야 합니다.");
-                    return false;
-                }
-            const Explanation = document.getElementById("inputExplan").value;
-            if( Explanation.length > 100){
-                alert("설명은 100글자까지 입니다.");
-                return false;
-            }
-
-            const Classification =title.split("[")[1].split("]")[0];
-            alert(Classification);
-
-            alert("AS 신청 완료");
-            return true;
-        }
-        function reset() {
-
-        }
-        function isIncludeSpecialChar(password,special_char) {
-                    for(const text of special_char){
-                        if(password.includes(text)){
-                            return true;
-               } 
-           }
-           return false;
-        }
-    </script>
+    <script src="JS/AS.js"></script>
 </body>
