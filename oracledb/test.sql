@@ -136,6 +136,16 @@ GROUP BY
 -- 만약 상품 설명이 10글자 이상인 경우 "탁월한 생산성을 위..." 와 같이 10글자 이후에는 ... 을 붙혀 주고
 -- 10글자 미만인 경우 모두 출력되게끔 합니다 (... 이 붙어서는 안됩니다)
 -- oracle IF(https://coding-factory.tistory.com/451), SUBSTR(https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions162.htm), ||(https://dpdpwl.tistory.com/80) 연산자 사용 필요
+SELECT
+    name  AS 상품명,
+    CASE
+        WHEN length(description) > 10 THEN
+            substr(description, 0, 10)||'...'
+        ELSE
+            description
+    END   AS 설명
+FROM
+    product
 
 -- 문제 9.
 -- PAYMENT_HISTORY 에서 1월중 가장 단일 판매 액수가 높은 주문 건수를 찾아서
